@@ -13,11 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        //record ที่ถูกลบไปเลยไม่มี id
-        Schema::create('password_resets', function (Blueprint $table) {
-            $table->string('email')->index();
-            $table->string('token'); //เอา token ของ email
-            $table->timestamp('created_at')->nullable(); //เก็บเวลา token
+        Schema::create('posts', function(Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->text('description');
+            $table->integer('view_count')->default(0);
+            $table->integer('live_count')->default(0);
+            $table->timestamps();
         });
     }
 
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('password_resets');
+        Schema::dropIfExists('posts');
     }
 };

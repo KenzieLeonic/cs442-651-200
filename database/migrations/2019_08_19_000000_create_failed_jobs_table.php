@@ -13,6 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
+        //job ที่รันไม่ได้
         Schema::create('failed_jobs', function (Blueprint $table) {
             $table->id();
             $table->string('uuid')->unique();
